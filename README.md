@@ -10,6 +10,6 @@
 * Navigate to the directory where the project files are saved
 * Use the command `flask run`
 * The output should have a ip adress formatted as `http://127.0.0.1:5000/`
-  * Copy this adress into a web browser
+  * Copy this adress into a web browser and load the page
 * Click on `Choose File` and select and image of a part
 * Click submit
