@@ -46,7 +46,7 @@ def upload_file():
 def search(f):
     cur_dir = os.path.dirname(__file__)
     model = pickle.load(open(os.path.join(cur_dir,'model.pkl'), 'rb'))
-    model = tf.keras.Sequential([model, tf.keras.layers.Softmax()])
+    model = tf.keras.Sequential([tf.keras.layers.Rescaling(scale=1./255), model, tf.keras.layers.ReLU()])
 
     img = tf.keras.preprocessing.image.load_img(f, target_size=(80,80))
     inputarr = tf.keras.preprocessing.image.img_to_array(img)
