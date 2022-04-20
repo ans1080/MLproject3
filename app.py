@@ -5,6 +5,7 @@ import tensorflow as tf
 from tensorflow.keras.preprocessing import image
 import numpy as np
 import pickle
+from tensorflow.keras.models import Sequential
 
 # Initialise Flask
 app = Flask(__name__)
@@ -43,14 +44,16 @@ def upload_file():
                     image_urls="")
 
 def search(f):
+    cur_dir = os.path.dirname(__file__)
+    model = pickle.load(open(os.path.join(cur_dir,'model.pkl'), 'rb'))
+    model = tf.keras.Sequential([tf.keras.layers.Rescaling(scale=1./255), model, tf.keras.layers.ReLU()])
 
-	cur_dir = os.path.dirname(__file__)
-	model = pickle.load(open(os.path.join(cur_dir,'model.pkl'), 'rb'))
-	img = tf.keras.preprocessing.image.load_img(f, target_size=(80,80))
-	inputarr = tf.keras.preprocessing.image.img_to_array(img)
-	inputarr = np.array([inputarr])
-	prediction = model.predict(inputarr)
-	return prediction
+    img = tf.keras.preprocessing.image.load_img(f, target_size=(80,80))
+    inputarr = tf.keras.preprocessing.image.img_to_array(img)
+    inputarr = np.array([inputarr])
+    prediction = model.predict(inputarr)
+    print(prediction)
+    return prediction
 
 if __name__ == '__main__':
     app.run(debug=True)
