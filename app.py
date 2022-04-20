@@ -47,13 +47,19 @@ def search(f):
     cur_dir = os.path.dirname(__file__)
     model = pickle.load(open(os.path.join(cur_dir,'model.pkl'), 'rb'))
     model = tf.keras.Sequential([tf.keras.layers.Rescaling(scale=1./255), model, tf.keras.layers.ReLU()])
+    label = {0: 'Defect 1', 1: 'Defect 2', 2: 'Normal'}
 
     img = tf.keras.preprocessing.image.load_img(f, target_size=(80,80))
     inputarr = tf.keras.preprocessing.image.img_to_array(img)
+    
     inputarr = np.array([inputarr])
     prediction = model.predict(inputarr)
-    print(prediction)
-    return prediction
+    score = tf.nn.softmax(prediction[0])
+
+    score = "This image most likely belongs to {} with a {:.2f} percent confidence.".format(label[np.argmax(score)], 100 * np.max(score))
+
+    print(score)
+    return score
 
 if __name__ == '__main__':
     app.run(debug=True)
