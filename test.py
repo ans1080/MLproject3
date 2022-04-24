@@ -1,6 +1,7 @@
 import numpy as np
 from arduino import Arduino
 from time import sleep
+import pyfirmata
 
 # Shared Dictionary & Arduino initialize
 label = {0: 'Defect 1', 1: 'Defect 2', 2: 'Normal'}
