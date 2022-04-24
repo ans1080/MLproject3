@@ -24,7 +24,6 @@ class Arduino:
         """
         # Initialize the board
         board = pyfirmata.Arduino('COM4')
-        ser = serial.Serial('COM4', 19200)
         
         # Change score into a string
         label = {0: 'Defect 1', 1: 'Defect 2', 2: 'Normal'}
@@ -35,7 +34,6 @@ class Arduino:
             board.digital[12].write(1) # 12 = Green
             sleep(3)
             board.digital[12].write(0)
-            ser.close()
 
         # Defective Output
         if score == 'Defect 1' or 'Defect 2':

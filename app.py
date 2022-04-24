@@ -57,9 +57,10 @@ def search(f):
     prediction = model.predict(inputarr)
     score = tf.nn.softmax(prediction[0])
 
-    arduino = Arduino()
-    arduino.output(score)
+    arduino = Arduino()  # Added this initialize
+    arduino.output(score) # Added thic call
 
+    # Changed score to score_string because the arduino needs the numbers
     score_string = "This image most likely belongs to {} with a {:.2f} percent confidence.".format(label[np.argmax(score)], 100 * np.max(score))
 
     print(score_string)
