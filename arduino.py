@@ -3,7 +3,6 @@
 # Imports
 import pyfirmata
 from time import sleep
-import tensorflow as tf
 import numpy as np
 
 class Arduino:
@@ -14,16 +13,19 @@ class Arduino:
         """
         Initializes the arduino class
         """
-        # Initialize the board
-        board = pyfirmata.Arduino('COM4')
 
     # Create a function that grabs relevant data and returns the new row
-    def output(score):
+    def output(self, score):
         """
         Sends output signals to the arduino
         Input: score: list, the 3-item percentage classification of the picture
         Ouput: none: buzzer and LED high/low output
         """
+        import numpy as np
+
+        # Initialize the board
+        board = pyfirmata.Arduino('COM4')
+        
         # Change score into a string
         label = {0: 'Defect 1', 1: 'Defect 2', 2: 'Normal'}
         score = label[np.argmax(score)]
