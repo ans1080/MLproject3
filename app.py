@@ -56,10 +56,10 @@ def search(f):
     prediction = model.predict(inputarr)
     score = tf.nn.softmax(prediction[0])
 
-    score = "This image most likely belongs to {} with a {:.2f} percent confidence.".format(label[np.argmax(score)], 100 * np.max(score))
+    score_string = "This image most likely belongs to {} with a {:.2f} percent confidence.".format(label[np.argmax(score)], 100 * np.max(score))
 
-    print(score)
-    return score
+    print(score_string)
+    return score_string
 
 if __name__ == '__main__':
     app.run(debug=True)
