@@ -36,7 +36,7 @@ class Arduino:
             board.digital[12].write(0)
 
         # Defective Output
-        if score == 'Defect 1' or 'Defect 2':
+        if score == 'Defect 1' or score == 'Defect 2':
             board.digital[13].write(1) #13 = Red
             board.digital[8].write(1) # 8 = Buzzer
             sleep(3)
