@@ -21,7 +21,7 @@ class Arduino:
     def output(score):
         """
         Sends output signals to the arduino
-        Input: score: integer, the classification of the picture
+        Input: score: list, the 3-item percentage classification of the picture
         Ouput: none: buzzer and LED high/low output
         """
         # Change score into a string
