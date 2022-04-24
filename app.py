@@ -6,6 +6,7 @@ from tensorflow.keras.preprocessing import image
 import numpy as np
 import pickle
 from tensorflow.keras.models import Sequential
+from arduino import Arduino
 
 # Initialise Flask
 app = Flask(__name__)
@@ -55,6 +56,9 @@ def search(f):
     inputarr = np.array([inputarr])
     prediction = model.predict(inputarr)
     score = tf.nn.softmax(prediction[0])
+
+    arduino = Arduino()
+    arduino.output(score)
 
     score_string = "This image most likely belongs to {} with a {:.2f} percent confidence.".format(label[np.argmax(score)], 100 * np.max(score))
 
