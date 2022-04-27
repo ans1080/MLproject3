@@ -46,7 +46,6 @@ def upload_file():
 
 def search(f):
     cur_dir = os.path.dirname(__file__)
-    #model = pickle.load(open(os.path.join(cur_dir,'model.pkl'), 'rb'))
     model_dir = os.path.join(cur_dir, 'tensorflow')
     model = tf.keras.models.load_model(model_dir)
     model = tf.keras.Sequential([tf.keras.layers.Rescaling(scale=1./255), model, tf.keras.layers.ReLU()])
