@@ -50,12 +50,10 @@ def upload_file():
 
 def search(f):
     cur_dir = os.path.dirname(__file__)
-    # model = pickle.load(open(os.path.join(cur_dir,'model.pkl'), 'rb'))
     model_dir = os.path.join(cur_dir, 'tensorflow')
     model = tf.keras.models.load_model(model_dir)
-    model = tf.keras.Sequential(
-        [tf.keras.layers.Rescaling(scale=1. / 255), model,
-         tf.keras.layers.ReLU()])
+    model = tf.keras.Sequential([tf.keras.layers.Rescaling(scale=1./255), model, tf.keras.layers.ReLU()])
+    
     label = {0: 'Defect 1', 1: 'Defect 2', 2: 'Normal'}
 
     img = tf.keras.preprocessing.image.load_img(f, target_size=(80, 80))
@@ -65,8 +63,8 @@ def search(f):
     prediction = model.predict(inputarr)
     score = tf.nn.softmax(prediction[0])
 
-    arduino = Arduino()  # Added this initialize
-    arduino.output(score)  # Added this call
+    #arduino = Arduino()  # Added this initialize
+    #arduino.output(score)  # Added this call
 
     # Changed score to score_string because the arduino needs the numbers
     score_string = "This image most likely belongs to {} with a {:.2f} percent confidence.".format(
