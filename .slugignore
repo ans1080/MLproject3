@@ -2,3 +2,5 @@
 *.jpeg
 *.jpg
 top_20.pkl
+/tensorflow_2
+/data
