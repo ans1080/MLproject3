@@ -1,6 +1,8 @@
 *.png
 *.jpeg
 *.jpg
+*.pkl
 top_20.pkl
 /tensorflow_2
 /data
+model_creation.ipynb
