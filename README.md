@@ -11,12 +11,12 @@
 * Use the command `flask run`
 * The output should have a ip adress formatted as `http://127.0.0.1:5000/`
   * Copy this address into a web browser and load the page
-* Click on `Choose File` and select and image of a part
+* Click on `Choose File` and select an image of a part
 * Click submit
 
 #### Instructions for Heroku Cloud Web App
 * Copy and paste the following link into a web browser: https://obscure-chamber-74940.herokuapp.com/
-* Click on `Choose File` and select and image of a part
+* Click on `Choose File` and select an image of a part
 * Click submit
   * Note that even a plugged in Arduino will not function with the Online Version
 
