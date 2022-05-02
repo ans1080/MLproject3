@@ -36,11 +36,19 @@ class Arduino:
             board.digital[12].write(0)
             board.sp.close()
 
-        # Defective Output
-        if score == 'Defect 1' or score == 'Defect 2':
+        # Defect 1 Output
+        if score == 'Defect 1':
             board.digital[11].write(1) #11 = Red
             board.digital[8].write(1) # 8 = Buzzer
             sleep(3)
             board.digital[11].write(0)
             board.digital[8].write(0)
             board.sp.close()
+        
+        # Defect 2 Output
+        if score == 'Defect 2':
+            for x in range(15):
+                board.digital[9].write(1) # = Blue
+                sleep(0.1)
+                board.digital[9].write(0)
+                sleep(0.1)
