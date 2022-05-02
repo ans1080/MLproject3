@@ -52,3 +52,4 @@ class Arduino:
                 sleep(0.1)
                 board.digital[9].write(0)
                 sleep(0.1)
+            board.sp.close()
