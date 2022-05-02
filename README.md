@@ -3,7 +3,7 @@
 
 #### Purpose
 <p>
-  The purpose of the this program is to create and deploy a machine learning algorithm that can detect pictures of a specific machined part and correctly identify if they are defective or not.  Ideally, the input should come from a locally hosted flask app and the output will be displayed on the screen.  A stretch goal for the project is to use an arduino microcontroller in combination with the pyserial library to turn on a green led light if the part is normal, but sound a buzzer if it is defective. </p>
+  The purpose of the this program is to create and deploy a machine learning algorithm that can detect pictures of a specific machined part and correctly identify if they are defective or not.  Ideally, the input should come from a locally hosted flask app and the output will be displayed on the screen.  A stretch goal for the project is to use an arduino microcontroller in combination with the pyserial library to turn on a green led light if the part is normal.  The part can be defective in one of two ways.  The first way is a misaligned hole, and the part is a waste so a red led should light and a buzzer sound.  However, the second defect is not an entirely wasted part, just a dirty one that needs to be cleaned.  In that case the light should flash blue. </p>
 
 #### Instructions for Local Arduino Use
 * Load a terminal such as git bash
