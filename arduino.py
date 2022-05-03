@@ -23,7 +23,7 @@ class Arduino:
         Ouput: none: buzzer and LED high/low output
         """
         # Initialize the board
-        board = pyfirmata.Arduino('COM4')
+        board = pyfirmata.Arduino('COM12')
         
         # Change score into a string
         label = {0: 'Defect 1', 1: 'Defect 2', 2: 'Normal'}
