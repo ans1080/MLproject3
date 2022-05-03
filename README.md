@@ -20,6 +20,11 @@
 * Click submit
   * Note that even a plugged in Arduino will not function with the Online Version
 
+#### Special Note
+* The TensorFlow model saved in the `tensorflow` folder occasionally does not pull correctly from git hub
+  * This causes a type error when the program is run
+* If this error occurs, unpack the `tensorflow.zip` file and use it to overwrite the corrupted `tensorflow` folder
+
 #### File Information
 * data
   * This folder contains:
