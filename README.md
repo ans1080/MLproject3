@@ -21,8 +21,6 @@
   * Note that even a plugged in Arduino will not function with the Online Version
 
 #### File Information
-* assets
-  * This folder is empty????
 * data
   * This folder contains:
     * test_data folder with sub-folders containing test data in all 3 categories (normal, defect 1, defect 2)
